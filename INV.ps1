@@ -1,5 +1,5 @@
   # Define File Path !!!
-  $file= C:/inventory.csv
+  $file= 'C:/inventory.csv'
   
   $ComputerName =  Get-WmiObject Win32_OperatingSystem  | select -ExpandProperty CSName
     $OS_Name = Get-WmiObject Win32_OperatingSystem  | Select-Object -ExpandProperty Caption 
