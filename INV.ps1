@@ -1,5 +1,7 @@
-﻿
-    $ComputerName =  Get-WmiObject Win32_OperatingSystem  | select -ExpandProperty CSName
+  # Define File Path !!!
+  $file= C:/inventory.csv
+  
+  $ComputerName =  Get-WmiObject Win32_OperatingSystem  | select -ExpandProperty CSName
     $OS_Name = Get-WmiObject Win32_OperatingSystem  | Select-Object -ExpandProperty Caption 
     $OS_Architecture = Get-WmiObject Win32_OperatingSystem  | select -ExpandProperty OSArchitecture
     $System_Manufacturer = Get-WmiObject win32_computersystem  | select -ExpandProperty Manufacturer
@@ -22,8 +24,6 @@
         "CPU_Manufacturer" = $CPU_Manufacturer
         "Disk_Size_GB" = $Disk_Size_GB
         "Physical_Memory_GB" = $Physical_Memory_GB
-        
         "InstallDate" = $InstallDate
-        
         "SerialNumber" = $SerialNumber
-} | Export-Csv -Path C:\users\nycdoe\desktop\newnew.csv -NoTypeInformation -Append
+} | Export-Csv -Path $file -NoTypeInformation -Append
